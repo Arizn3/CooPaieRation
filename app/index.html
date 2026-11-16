@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Coo-Paie-Ration | Paie, Social & RH</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Montserrat & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0B2545',
+                            dark: '#07172C',
+                            light: '#132A4A',
+                        },
+                        teal: {
+                            DEFAULT: '#1DA19B',
+                            light: '#2EC4B6',
+                            soft: '#E6F6F5',
+                            accent: '#70C1B3',
+                        },
+                        coral: {
+                            DEFAULT: '#FF6B6B',
+                            hover: '#FA5252',
+                            light: '#FFEBEB',
+                            dark: '#E04848'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': '2.5rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 antialiased overflow-x-hidden">
+
+    <!-- 1. HEADER FIXE -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300 border-b border-teal-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo textuel stylisé inspiré du visuel fourni -->
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 bg-navy flex items-center justify-center rounded-2xl shadow-md group-hover:scale-105 transition-transform duration-300 relative overflow-hidden">
+                        <div class="absolute -top-1 -right-1 w-6 h-6 bg-teal rounded-full opacity-80"></div>
+                        <div class="absolute -bottom-1 -left-1 w-5 h-5 bg-coral rounded-full opacity-80"></div>
+                        <i class="fa-solid fa-puzzle-piece text-white text-xl z-10"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xs font-bold uppercase tracking-wider text-teal">notre</span>
+                        <div class="text-xl font-extrabold leading-none tracking-tight">
+                            <span class="text-navy">COO</span><span class="text-coral">PAIE</span><span class="text-navy">RATION</span>
+                        </div>
+                        <span class="text-[10px] font-semibold text-slate-500 tracking-widest uppercase mt-0.5">PAIE • SOCIAL • RH</span>
+                    </div>
+                </a>
+
+                <!-- Nav desktop -->
+                <nav class="hidden lg:flex items-center gap-6 font-medium text-sm text-navy-light">
+                    <a href="#presentation" class="hover:text-teal transition-colors py-2">Présentation</a>
+                    <a href="#philosophie" class="hover:text-teal transition-colors py-2">Philosophie</a>
+                    <a href="#services" class="hover:text-teal transition-colors py-2">Services</a>
+                    <a href="#pourquoi" class="hover:text-teal transition-colors py-2">Pourquoi Nous ?</a>
+                    <a href="#technologie" class="hover:text-teal transition-colors py-2">Silae & Coffre-Fort</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden sm:flex items-center gap-4">
+                    <a href="#contact" class="bg-coral hover:bg-coral-hover text-white font-semibold px-6 py-2.5 rounded-full shadow-lg shadow-coral/20 hover:shadow-coral/40 transition-all duration-300 text-sm">
+                        Contactez-nous
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" aria-label="Menu Mobile" class="lg:hidden p-2 rounded-lg text-navy hover:bg-slate-100 transition-colors">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-100 px-6 py-4 space-y-3">
+            <a href="#presentation" class="block font-medium text-slate-700 hover:text-teal">Présentation</a>
+            <a href="#philosophie" class="block font-medium text-slate-700 hover:text-teal">Philosophie</a>
+            <a href="#services" class="block font-medium text-slate-700 hover:text-teal">Services</a>
+            <a href="#pourquoi" class="block font-medium text-slate-700 hover:text-teal">Pourquoi Nous ?</a>
+            <a href="#technologie" class="block font-medium text-slate-700 hover:text-teal">Silae & Coffre-Fort</a>
+            <a href="#contact" class="block w-full text-center bg-coral text-white font-semibold px-5 py-2.5 rounded-full shadow-md">Contactez-nous</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+
+        <!-- 2. SECTION 1 - HERO BANNER -->
+        <section id="hero" class="relative bg-navy text-white overflow-hidden py-20 lg:py-32">
+            <!-- Background Elements -->
+            <div class="absolute inset-0 bg-pattern"></div>
+            <!-- Diagonal/Curved Shapes from background image -->
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-teal/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-full lg:w-1/2 h-full bg-gradient-to-l from-teal/30 to-transparent pointer-events-none"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-teal-light text-sm font-semibold">
+                            <i class="fa-solid fa-puzzle-piece text-coral"></i>
+                            <span>Gestion de paie & Administration du personnel</span>
+                        </div>
+                        
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                            NOTRE COO-PAIE-RATION
+                            <span class="block text-teal-light text-3xl sm:text-4xl lg:text-5xl mt-2 font-bold">
+                                La paie, c’est mieux ensemble.
+                            </span>
+                        </h1>
+
+                        <p class="text-lg sm:text-xl text-slate-300 max-w-2xl font-light leading-relaxed mx-auto lg:mx-0">
+                            Votre paie, notre expertise. Votre entreprise, notre priorité. 
+                            Découvrez un accompagnement humain, rigoureux et 100% adapté à vos besoins.
+                        </p>
+
+                        <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <a href="#services" class="bg-teal hover:bg-teal-light text-navy font-bold px-8 py-4 rounded-full shadow-lg shadow-teal/20 hover:shadow-teal/40 transition-all text-center">
+                                Découvrir nos services
+                            </a>
+                            <a href="#contact" class="bg-coral hover:bg-coral-hover text-white font-bold px-8 py-4 rounded-full shadow-lg shadow-coral/20 hover:shadow-coral/40 transition-all text-center">
+                                Contactez-nous
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Visual graphic representing puzzle cooperation & payroll software -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative mx-auto max-w-md lg:max-w-none">
+                            <div class="bg-navy-light/80 p-8 rounded-3xl border border-white/10 shadow-2xl backdrop-blur-md">
+                                <div class="flex items-center justify-between pb-6 border-b border-white/10">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-teal/20 flex items-center justify-center text-teal-light">
+                                            <i class="fa-solid fa-chart-line text-lg"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm font-bold">Silae Partner</div>
+                                            <div class="text-xs text-slate-400">Technologie & Fiabilité</div>
+                                        </div>
+                                    </div>
+                                    <span class="px-3 py-1 bg-coral/20 text-coral text-xs rounded-full font-semibold">13 ans d'exp.</span>
+                                </div>
+                                
+                                <div class="py-6 space-y-4">
+                                    <div class="flex items-center gap-4 bg-navy p-3.5 rounded-2xl border border-white/5">
+                                        <div class="w-8 h-8 rounded-full bg-teal text-navy font-bold flex items-center justify-center text-xs">
+                                            <i class="fa-solid fa-check"></i>
+                                        </div>
+                                        <div class="text-sm font-medium">Bulletins de paie conformes</div>
+                                    </div>
+                                    <div class="flex items-center gap-4 bg-navy p-3.5 rounded-2xl border border-white/5">
+                                        <div class="w-8 h-8 rounded-full bg-teal text-navy font-bold flex items-center justify-center text-xs">
+                                            <i class="fa-solid fa-check"></i>
+                                        </div>
+                                        <div class="text-sm font-medium">Déclarations sociales (DSN)</div>
+                                    </div>
+                                    <div class="flex items-center gap-4 bg-navy p-3.5 rounded-2xl border border-white/5">
+                                        <div class="w-8 h-8 rounded-full bg-coral text-white font-bold flex items-center justify-center text-xs">
+                                            <i class="fa-solid fa-lock"></i>
+                                        </div>
+                                        <div class="text-sm font-medium">Coffre-fort numérique sécurisé</div>
+                                    </div>
+                                </div>
+
+                                <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
+                                    <span>Accompagnement TPE & PME</span>
+                                    <span class="text-teal-light font-semibold">100% Serein</span>
+                                </div>
+                            </div>
+
+                            <!-- Floating badge -->
+                            <div class="absolute -bottom-6 -left-6 bg-white text-navy p-4 rounded-2xl shadow-xl flex items-center gap-3 border border-slate-100 hidden sm:flex">
+                                <div class="w-12 h-12 bg-teal-soft rounded-xl flex items-center justify-center text-teal font-bold text-xl">
+                                    <i class="fa-solid fa-handshake"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-500 font-medium">Relation Humaine</div>
+                                    <div class="text-sm font-extrabold text-navy">Confiance & Proximité</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SECTION 2 - PRÉSENTATION & PHILOSOPHIE -->
+        <section id="presentation" class="py-24 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Presentation Intro -->
+                <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+                    <span class="text-teal font-bold tracking-widest text-sm uppercase">Présentation</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-navy">
+                        Votre paie, notre expertise.<br>Votre entreprise, notre priorité.
+                    </h2>
+                    <p class="text-slate-600 text-lg leading-relaxed pt-2">
+                        La gestion de la paie et de l'administration du personnel demande du temps, de la rigueur et une expertise constamment actualisée.
+                    </p>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        <strong>Notre Coo-Paie-Ration</strong> accompagne les TPE et PME avec une approche simple : vous apporter une expertise professionnelle, un service de proximité et une véritable relation de confiance.
+                    </p>
+                    <div class="pt-4 inline-flex items-center gap-3 bg-teal-soft text-teal-dark px-5 py-3 rounded-2xl font-semibold text-sm">
+                        <i class="fa-solid fa-shield-halved text-teal text-lg"></i>
+                        <span>Avec plus de 13 ans d'expérience et grâce au logiciel SILAE, vous vous concentrez sur votre activité, nous prenons soin de votre paie.</span>
+                    </div>
+                </div>
+
+                <!-- Philosophie Section -->
+                <div id="philosophie" class="mt-20 pt-16 border-t border-slate-100">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <span class="text-coral font-bold tracking-widest text-sm uppercase">Notre Philosophie</span>
+                        <h3 class="text-3xl font-extrabold text-navy mt-2">
+                            La proximité avant tout. La coopération au cœur de notre métier.
+                        </h3>
+                        <p class="text-slate-600 mt-4">
+                            Chez Notre Coo-Paie-Ration, nous sommes convaincus que la réussite d'une collaboration repose avant tout sur la qualité de la relation humaine. Nous ne souhaitons pas être un simple prestataire, mais un véritable partenaire sur lequel vous pouvez compter.
+                        </p>
+                    </div>
+
+                    <!-- 4 Pillars Grid -->
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- Card 1 -->
+                        <div class="puzzle-card bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-teal/30 hover:shadow-xl hover:bg-white transition-all">
+                            <div class="w-14 h-14 bg-teal/10 text-teal rounded-2xl flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-user-group"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-navy mb-3">Être proches de vous</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Relation directe, accessible et personnalisée. Vous bénéficiez d'un interlocuteur dédié qui connaît votre dossier et votre fonctionnement.
+                            </p>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="puzzle-card bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-teal/30 hover:shadow-xl hover:bg-white transition-all">
+                            <div class="w-14 h-14 bg-teal/10 text-teal rounded-2xl flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-navy mb-3">Être à votre écoute</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Vos besoins, vos contraintes et vos attentes sont au centre de notre accompagnement pour vous proposer des solutions sur-mesure.
+                            </p>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="puzzle-card bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-teal/30 hover:shadow-xl hover:bg-white transition-all">
+                            <div class="w-14 h-14 bg-coral/10 text-coral rounded-2xl flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-puzzle-piece"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-navy mb-3">Travailler en coopération</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Nous travaillons main dans la main avec vous, votre équipe administrative ou votre expert-comptable pour une gestion fluide et efficace.
+                            </p>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="puzzle-card bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-teal/30 hover:shadow-xl hover:bg-white transition-all">
+                            <div class="w-14 h-14 bg-teal/10 text-teal rounded-2xl flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-award"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-navy mb-3">Partager notre expertise</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Plus de 13 ans d'expérience à votre disposition pour vous conseiller, vous accompagner et vous aider à sécuriser vos pratiques.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 text-center">
+                        <p class="text-navy font-semibold italic text-base">
+                            « Parce que derrière chaque bulletin de salaire, il y a une entreprise, des collaborateurs et une relation de confiance. »
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. SECTION 3 - NOS SERVICES -->
+        <section id="services" class="py-24 bg-slate-100 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-teal font-bold tracking-widest text-sm uppercase">Nos Services</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-navy mt-2">
+                        Une gestion complète, de l'embauche au départ du salarié
+                    </h2>
+                    <p class="text-slate-600 mt-4">
+                        Nous vous accompagnons dans la gestion quotidienne de votre personnel et dans le traitement de vos paies.
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    
+                    <!-- Service Card 1 -->
+                    <div class="bg-white rounded-4xl p-8 sm:p-10 shadow-lg border border-slate-200/60 flex flex-col justify-between hover:shadow-2xl transition-all">
+                        <div>
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-16 h-16 bg-navy text-teal-light rounded-2xl flex items-center justify-center text-2xl shadow-md">
+                                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-navy">Gestion de la paie</h3>
+                                    <p class="text-xs text-teal font-semibold uppercase tracking-wider">Traitement & Déclarations</p>
+                                </div>
+                            </div>
+
+                            <ul class="space-y-3.5 text-slate-700">
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-teal mt-1"></i>
+                                    <span>Collecte et traitement des éléments variables de paie</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-teal mt-1"></i>
+                                    <span>Établissement des bulletins de salaire</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-teal mt-1"></i>
+                                    <span>Gestion des déclarations sociales (DSN)</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-teal mt-1"></i>
+                                    <span>Gestion des absences, congés payés et arrêts de travail</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-teal mt-1"></i>
+                                    <span>Suivi des indemnités journalières et de la prévoyance</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-teal mt-1"></i>
+                                    <span>Veille et prise en compte des évolutions réglementaires et conventionnelles</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                            <span>Logiciel SILAE dédié</span>
+                            <span class="font-bold text-navy">Conformité 100% garantie</span>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 2 -->
+                    <div class="bg-white rounded-4xl p-8 sm:p-10 shadow-lg border border-slate-200/60 flex flex-col justify-between hover:shadow-2xl transition-all">
+                        <div>
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-16 h-16 bg-teal text-white rounded-2xl flex items-center justify-center text-2xl shadow-md">
+                                    <i class="fa-solid fa-users-gear"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-navy">Administration du personnel</h3>
+                                    <p class="text-xs text-coral font-semibold uppercase tracking-wider">Suivi RH & Formalités</p>
+                                </div>
+                            </div>
+
+                            <ul class="space-y-3.5 text-slate-700">
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-coral mt-1"></i>
+                                    <span>Préparation des formalités d'embauche et DPAE</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-coral mt-1"></i>
+                                    <span>Rédaction des contrats de travail et avenants</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-coral mt-1"></i>
+                                    <span>Gestion et suivi des dossiers du personnel</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-coral mt-1"></i>
+                                    <span>Gestion des visites médicales et obligations administratives</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-coral mt-1"></i>
+                                    <span>Suivi des événements liés à la vie du salarié</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-coral mt-1"></i>
+                                    <span>Préparation des documents de fin de contrat et formalités de sortie</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                            <span>Accompagnement RH complet</span>
+                            <span class="font-bold text-navy">Du contrat au départ</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Banner Accompagnement adaptable -->
+                <div class="mt-12 bg-gradient-to-r from-navy to-navy-light rounded-3xl p-8 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 rounded-2xl bg-teal/20 text-teal-light flex items-center justify-center text-3xl shrink-0">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold">Un accompagnement qui s'adapte à vous</h4>
+                            <p class="text-slate-300 text-sm mt-1">
+                                Que vous souhaitiez externaliser intégralement votre paie ou simplement bénéficier d'un renfort ponctuel, nous construisons ensemble une solution adaptée à votre organisation.
+                            </p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="shrink-0 bg-coral hover:bg-coral-hover text-white font-bold px-6 py-3 rounded-full transition-all text-sm shadow-md">
+                        Demander une étude
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. SECTION 4 - POURQUOI NOUS FAIRE CONFIANCE ? -->
+        <section id="pourquoi" class="py-24 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-coral font-bold tracking-widest text-sm uppercase">Vos Bénéfices Au Quotidien</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-navy mt-2">
+                        POURQUOI NOUS FAIRE CONFIANCE ?
+                    </h2>
+                    <p class="text-slate-600 text-lg mt-3 font-medium">
+                        Plus qu'un prestataire, un véritable partenaire.
+                    </p>
+                    <p class="text-slate-500 text-sm mt-1">
+                        Externaliser votre paie auprès de Notre Coo-Paie-Ration, c'est choisir la tranquillité, la souplesse et la maîtrise de votre gestion sociale.
+                    </p>
+                </div>
+
+                <!-- 6 Key Benefits Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Benefit 1 -->
+                    <div class="puzzle-card bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-teal/30 hover:bg-white hover:shadow-xl transition-all relative overflow-hidden">
+                        <div class="text-4xl font-extrabold text-teal/20 absolute top-4 right-6">01</div>
+                        <div class="w-12 h-12 bg-teal text-white rounded-xl flex items-center justify-center text-xl font-bold mb-6">
+                            <i class="fa-solid fa-user-check"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy mb-3">L'expérience d'un professionnel à vos côtés</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Plus de 13 ans d'expérience en gestion de paie directement mobilisés pour votre entreprise. Profitez d'un savoir-faire opérationnel sans les contraintes d'une embauche interne.
+                        </p>
+                    </div>
+
+                    <!-- Benefit 2 -->
+                    <div class="puzzle-card bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-teal/30 hover:bg-white hover:shadow-xl transition-all relative overflow-hidden">
+                        <div class="text-4xl font-extrabold text-teal/20 absolute top-4 right-6">02</div>
+                        <div class="w-12 h-12 bg-teal text-white rounded-xl flex items-center justify-center text-xl font-bold mb-6">
+                            <i class="fa-solid fa-list-check"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy mb-3">La rigueur au cœur de chaque bulletin</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Adaptation précise des paramétrages à votre environnement conventionnel. Notre suivi fiabilise vos traitements et limite tout risque d'erreur.
+                        </p>
+                    </div>
+
+                    <!-- Benefit 3 -->
+                    <div class="puzzle-card bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-coral/30 hover:bg-white hover:shadow-xl transition-all relative overflow-hidden">
+                        <div class="text-4xl font-extrabold text-coral/20 absolute top-4 right-6">03</div>
+                        <div class="w-12 h-12 bg-coral text-white rounded-xl flex items-center justify-center text-xl font-bold mb-6">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy mb-3">La sérénité, même en cas d'imprévu</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Absence ou départ dans vos équipes ? Votre activité ne subit aucun impact. Notre service externalisé garantit la continuité de vos paies.
+                        </p>
+                    </div>
+
+                    <!-- Benefit 4 -->
+                    <div class="puzzle-card bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-teal/30 hover:bg-white hover:shadow-xl transition-all relative overflow-hidden">
+                        <div class="text-4xl font-extrabold text-teal/20 absolute top-4 right-6">04</div>
+                        <div class="w-12 h-12 bg-teal text-white rounded-xl flex items-center justify-center text-xl font-bold mb-6">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy mb-3">Du temps retrouvé pour votre activité</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Réduisez le temps consacré à la gestion administrative. Recentrez-vous sur l’essentiel : vos clients, vos équipes et votre développement.
+                        </p>
+                    </div>
+
+                    <!-- Benefit 5 -->
+                    <div class="puzzle-card bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-teal/30 hover:bg-white hover:shadow-xl transition-all relative overflow-hidden">
+                        <div class="text-4xl font-extrabold text-teal/20 absolute top-4 right-6">05</div>
+                        <div class="w-12 h-12 bg-teal text-white rounded-xl flex items-center justify-center text-xl font-bold mb-6">
+                            <i class="fa-solid fa-piggy-bank"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy mb-3">Des coûts maîtrisés sans investissement</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Pas de frais de recrutement, de maintenance ou de licence logiciel. Une prestation transparente et adaptée avec une pleine visibilité budgétaire.
+                        </p>
+                    </div>
+
+                    <!-- Benefit 6 -->
+                    <div class="puzzle-card bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-coral/30 hover:bg-white hover:shadow-xl transition-all relative overflow-hidden">
+                        <div class="text-4xl font-extrabold text-coral/20 absolute top-4 right-6">06</div>
+                        <div class="w-12 h-12 bg-coral text-white rounded-xl flex items-center justify-center text-xl font-bold mb-6">
+                            <i class="fa-solid fa-cloud"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy mb-3">Une solution accessible en toute simplicité</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Aucune installation complexe. Votre environnement de paie est 100% accessible en ligne avec gestion sécurisée des accès utilisateurs.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. SECTION 5 - TECHNOLOGIE (SILAE) & COFFRE-FORT NUMÉRIQUE -->
+        <section id="technologie" class="py-24 bg-navy text-white relative overflow-hidden">
+            <!-- Decorative gradient shapes -->
+            <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-teal/10 rounded-full blur-3xl"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-teal-light font-bold tracking-widest text-sm uppercase">Outils & Innovation</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">
+                        SILAE & VOTRE COFFRE-FORT NUMÉRIQUE
+                    </h2>
+                    <p class="text-slate-300 text-lg mt-2">
+                        La technologie au service de votre paie.
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 items-stretch">
+                    
+                    <!-- SILAE Block -->
+                    <div class="bg-navy-light/90 border border-teal/20 rounded-4xl p-8 sm:p-10 flex flex-col justify-between backdrop-blur-sm shadow-xl">
+                        <div>
+                            <div class="flex items-center justify-between pb-6 border-b border-white/10 mb-6">
+                                <div>
+                                    <h3 class="text-2xl font-extrabold text-white">SILAE</h3>
+                                    <p class="text-xs text-teal-light font-medium mt-0.5">Un logiciel performant, une expertise humaine à vos côtés</p>
+                                </div>
+                                <span class="bg-teal/20 text-teal-light px-3 py-1.5 rounded-xl text-xs font-bold border border-teal/30">
+                                    Référence Paie
+                                </span>
+                            </div>
+
+                            <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+                                Pour assurer la gestion de vos paies, nous avons choisi <strong>SILAE</strong>, la solution leader qui associe automatisation, fiabilité et simplicité d'utilisation.
+                            </p>
+
+                            <ul class="space-y-3.5 text-slate-200 text-sm">
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-bolt text-teal-light mt-1"></i>
+                                    <span><strong>Paie automatisée :</strong> Fonctionnalités avancées d'optimisation.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-arrows-rotate text-teal-light mt-1"></i>
+                                    <span><strong>Réglementation actualisée :</strong> Intégration en temps réel des évolutions légales & conventionnelles.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-database text-teal-light mt-1"></i>
+                                    <span><strong>Gestion centralisée :</strong> Toutes les données salariés au même endroit.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-globe text-teal-light mt-1"></i>
+                                    <span><strong>Accès en ligne :</strong> Consultation et partage sécurisé multi-utilisateurs.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-paper-plane text-teal-light mt-1"></i>
+                                    <span><strong>DSN simplifiées :</strong> Préparation et transmission directes.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-white/10 bg-white/5 p-4 rounded-2xl">
+                            <p class="text-xs text-slate-300 italic text-center">
+                                « La technologie fait gagner du temps. L'expertise fait la différence. SILAE est notre outil, mais c'est notre savoir-faire qui fait votre service. »
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Coffre-Fort Numérique Block -->
+                    <div class="bg-navy-light/90 border border-coral/20 rounded-4xl p-8 sm:p-10 flex flex-col justify-between backdrop-blur-sm shadow-xl">
+                        <div>
+                            <div class="flex items-center justify-between pb-6 border-b border-white/10 mb-6">
+                                <div>
+                                    <h3 class="text-2xl font-extrabold text-white">Coffre-Fort Numérique</h3>
+                                    <p class="text-xs text-coral font-medium mt-0.5">Vos documents importants, en toute sécurité</p>
+                                </div>
+                                <span class="bg-coral/20 text-coral px-3 py-1.5 rounded-xl text-xs font-bold border border-coral/30">
+                                    Dématérialisation
+                                </span>
+                            </div>
+
+                            <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+                                Fini les bulletins de salaire envoyés par e-mail ou éparpillés ! Chaque salarié dispose d'un espace personnel sécurisé pour consulter et archiver ses documents.
+                            </p>
+
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-4 bg-navy p-3.5 rounded-2xl border border-white/5">
+                                    <div class="w-10 h-10 rounded-xl bg-coral/20 text-coral flex items-center justify-center font-bold">
+                                        <i class="fa-solid fa-file-shield text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-semibold">Distribution dématérialisée</div>
+                                        <div class="text-xs text-slate-400">Envoi sécurisé des bulletins de paie</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-4 bg-navy p-3.5 rounded-2xl border border-white/5">
+                                    <div class="w-10 h-10 rounded-xl bg-teal/20 text-teal-light flex items-center justify-center font-bold">
+                                        <i class="fa-solid fa-key text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-semibold">Accès personnel 24/7</div>
+                                        <div class="text-xs text-slate-400">Consultation à tout moment par le salarié</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-4 bg-navy p-3.5 rounded-2xl border border-white/5">
+                                    <div class="w-10 h-10 rounded-xl bg-teal/20 text-teal-light flex items-center justify-center font-bold">
+                                        <i class="fa-solid fa-box-archive text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-semibold">Conservation & Archivage à valeur probante</div>
+                                        <div class="text-xs text-slate-400">Pendant 50 ans ou jusqu'à la retraite</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
+                            <span class="flex items-center gap-2">
+                                <i class="fa-solid fa-leaf text-teal-light"></i> Démarche éco-responsable
+                            </span>
+                            <span class="text-white font-semibold">100% Zéro Papier</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. SECTION 6 - CONTACT & FOOTER -->
+        <section id="contact" class="py-24 bg-slate-50 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="max-w-4xl mx-auto bg-white rounded-5xl shadow-2xl overflow-hidden border border-slate-100">
+                    <div class="grid md:grid-cols-12">
+                        
+                        <!-- Contact Info Left Column -->
+                        <div class="md:col-span-5 bg-navy text-white p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden">
+                            <div class="absolute inset-0 bg-pattern opacity-20"></div>
+                            
+                            <div class="relative z-10 space-y-6">
+                                <div class="w-12 h-12 bg-coral rounded-2xl flex items-center justify-center text-white text-xl">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+
+                                <h3 class="text-2xl font-extrabold">ET SI NOUS FAISIONS ÉQUIPE ?</h3>
+                                
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    Vous souhaitez externaliser votre paie, gagner du temps ou simplement bénéficier d'un accompagnement professionnel et personnalisé ?
+                                </p>
+                                <p class="text-teal-light font-semibold text-sm">
+                                    Parlons de votre entreprise et de vos besoins.
+                                </p>
+                            </div>
+
+                            <div class="relative z-10 pt-8 border-t border-white/10 space-y-4 text-xs text-slate-300">
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-solid fa-check text-teal-light"></i>
+                                    <span>Devis sur-mesure sous 24/48h</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-solid fa-check text-teal-light"></i>
+                                    <span>Étude gratuite de votre dossier</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Form Right Column -->
+                        <div class="md:col-span-7 p-8 sm:p-10">
+                            <h4 class="text-xl font-bold text-navy mb-6">Contactez-nous</h4>
+
+                            <!-- Success Alert Box (Hidden by default) -->
+                            <div id="contact-success" class="hidden mb-6 p-4 bg-teal-soft border border-teal text-navy rounded-2xl text-sm font-medium flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-teal text-xl"></i>
+                                <span>Merci ! Votre message a bien été envoyé. Nous vous recontacterons très rapidement.</span>
+                            </div>
+
+                            <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-600 mb-1">Nom & Prénom *</label>
+                                        <input type="text" required placeholder="Dupont Jean" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition text-sm">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-600 mb-1">Entreprise *</label>
+                                        <input type="text" required placeholder="Nom de votre société" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition text-sm">
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-600 mb-1">Email *</label>
+                                        <input type="email" required placeholder="jean@entreprise.fr" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition text-sm">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-600 mb-1">Téléphone</label>
+                                        <input type="tel" placeholder="06 00 00 00 00" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition text-sm">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-600 mb-1">Votre message *</label>
+                                    <textarea rows="4" required placeholder="Expliquez-nous brièvement vos besoins (nombre de salariés, convention collective...)" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-teal focus:ring-2 focus:ring-teal/20 outline-none transition text-sm"></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full bg-coral hover:bg-coral-hover text-white font-bold py-3.5 rounded-xl shadow-lg shadow-coral/20 hover:shadow-coral/40 transition-all text-sm uppercase tracking-wider">
+                                    Envoyer le message
+                                </button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-dark text-white border-t border-white/10 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/10">
+                
+                <!-- Logo Footer -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-navy flex items-center justify-center rounded-xl border border-white/20">
+                        <i class="fa-solid fa-puzzle-piece text-teal-light text-lg"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-lg font-extrabold tracking-tight">
+                            NOTRE <span class="text-coral">COO-PAIE</span>-RATION
+                        </span>
+                        <span class="text-[10px] text-slate-400 uppercase tracking-widest">Votre paie, notre expertise</span>
+                    </div>
+                </div>
+
+                <!-- Footer Nav -->
+                <div class="flex flex-wrap justify-center gap-6 text-xs text-slate-300">
+                    <a href="#presentation" class="hover:text-teal-light transition">Présentation</a>
+                    <a href="#philosophie" class="hover:text-teal-light transition">Philosophie</a>
+                    <a href="#services" class="hover:text-teal-light transition">Services</a>
+                    <a href="#pourquoi" class="hover:text-teal-light transition">Pourquoi Nous ?</a>
+                    <a href="#technologie" class="hover:text-teal-light transition">Technologie</a>
+                </div>
+
+                <!-- Tagline -->
+                <div class="text-xs text-slate-400 text-center md:text-right">
+                    Notre collaboration, votre sérénité.
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 Notre Coo-Paie-Ration. Tous droits réservés.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:underline">Mentions Légales</a>
+                    <a href="#" class="hover:underline">Politique de Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Script for Form and Mobile Menu -->
+    <script src="script.js"></script>
+</body>
+</html>

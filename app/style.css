@@ -1,0 +1,24 @@
+body {
+            font-family: 'Inter', sans-serif;
+            color: #2D3748;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .bg-pattern {
+            background-image: radial-gradient(#1DA19B 0.75px, transparent 0.75px), radial-gradient(#1DA19B 0.75px, #0B2545 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            opacity: 0.15;
+        }
+        .puzzle-card {
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .puzzle-card:hover {
+            transform: translateY(-6px);
+        }
+        /* Custom shape accents */
+        .shape-blob {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
